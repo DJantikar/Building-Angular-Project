@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<!-- 
+<head>
+<link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+<style>
+    body{ background-color: ivory; padding:25px;}
+    #canvas{border:1px solid red;}
+</style>
+
+<script>
+$(function(){
+
+    var canvas=document.getElementById("canvas");
+    var ctx=canvas.getContext("2d");
+
+    var canvasOffset=$("#canvas").offset();
+    var offsetX=canvasOffset.left;
+    var offsetY=canvasOffset.top;
+
+    var startX;
+    var startY;
+    var isDown=false;
+
+    var tipWidth=35;
+    var tipHeight=22;
+    var tipRow;
+    var tipCol;
+
+    ctx.font="14pt verdana";
+
+    draw();
+
+    function draw(){
+
+        // you would just draw your image here
+        // ctx.drawImage(0,0,image.width,image.height);
+
+        // but for illustration, this just recreates your image
+        ctx.beginPath();
+        ctx.rect(0,0,375,225);
+        for(var x=1;x<5;x++){ ctx.moveTo(x*75,0); ctx.lineTo(x*75,canvas.height); }
+        for(var y=1;y<3;y++){ ctx.moveTo(0,y*75); ctx.lineTo(canvas.width,y*75); }
+        ctx.fillStyle="black";
+        ctx.fill();
+        ctx.strokeStyle="gray";
+        ctx.lineWidth=2;
+        ctx.stroke();
+    }
+
+    function tip(x,y){
+      var tipX=tipCol*75+75-tipWidth;
+      var tipY=tipRow*75;
+      ctx.beginPath();
+      ctx.rect(tipX,tipY,tipWidth,tipHeight);
+      ctx.fillStyle="ivory";
+      ctx.fill();
+      ctx.fillStyle="blue";
+      ctx.fillText(tipCol+","+tipRow,tipX+2,tipY+17);
+    }
+
+
+    function handleMouseMove(e){
+      mouseX=parseInt(e.clientX-offsetX);
+      mouseY=parseInt(e.clientY-offsetY);
+      $("#movelog").html("Move: "+ mouseX + " / " + mouseY);
+
+      // Put your mousemove stuff here
+      var col=parseInt(mouseX/75);
+      var row=parseInt(mouseY/75);
+      if(!(row==tipRow && col==tipCol)){
+          tipCol=col;
+          tipRow=row;
+          draw();
+          tip();
+      }
+
+
+    }
+
+    $("#canvas").mousemove(function(e){handleMouseMove(e);});
+
+}); // end $(function(){});
+</script>
+
+</head>
+ -->
+<body>
+    <div align="center">
+    <h4>x: {{mouseX}} | y : {{mouseY}} </h4>
+    <canvas id="canvas" width=1100 height=500
+                  (mousemove)="handleMouseMove($event)"
+                  (click)="processClick()"
+    #canvasElement></canvas>
+    
+    </div>
+</body>
+</html>

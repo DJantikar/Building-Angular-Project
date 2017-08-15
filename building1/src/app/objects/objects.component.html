@@ -1,0 +1,22 @@
+<form>
+      <div class="row">
+        <div class="col-sm-1 form-group">
+        </div>
+        <div class="col-sm-2 form-group">
+            <label for="column">Column</label>
+            <input type="radio" 
+                   name="object"
+                   checked
+                   (click)="updateSelection('Column')"
+                   #column>
+            <br>            
+        </div>
+        <div class="col-sm-2 form-group">
+            <label for="beam">Beam</label>
+            <input type="radio" 
+                  name="object"
+                  (click)="updateSelection('Beam')"
+                  #beam>
+        </div>
+      </div>
+  </form>

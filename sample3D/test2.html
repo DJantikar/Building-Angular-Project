@@ -1,0 +1,45 @@
+	
+<html>
+    <head>
+        <title>Shapes and Stuff</title>
+        <script src="three.js"></script>
+        <script>
+
+var scene = new THREE.Scene();
+var camera = new THREE.PerspectiveCamera(50, 500 / 400, 0.1, 1000);
+
+//var renderer = new THREE.WebGLRenderer();
+var renderer = new THREE.WebGLRenderer(document.get);
+renderer.setSize(500, 400);
+
+//document.body.appendChild(renderer.domElement);
+
+var geometry = new THREE.SphereGeometry(3, 50, 50, 0, Math.PI * 2, 0, Math.PI * 2);
+var material1 = new THREE.MeshBasicMaterial();
+var material2 = new THREE.MeshBasicMaterial();
+var sphere = [new THREE.Mesh(geometry, material1), new THREE.Mesh(geometry, material1), new THREE.Mesh(geometry, material2)];
+
+sphere[0].position.set(1, 1, 1);
+sphere[1].position.set(-1, -1, -1);
+
+scene.add(sphere[0]);
+scene.add(sphere[1]);
+
+
+camera.position.z = 10;
+
+
+var render = function() {
+  requestAnimationFrame(render);
+  renderer.render(scene, camera);
+};
+
+render();
+        </script>
+    </head>
+    <body>
+        <canvas id="artifactCanvas" myattr="myattr">
+        </canvas> 
+    </body>
+   
+</html>

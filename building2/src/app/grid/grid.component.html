@@ -1,0 +1,13 @@
+<html>
+<body>
+    <hr>
+    <div align="center">
+    <h4>x: {{mouseX}} | y : {{mouseY}} </h4>
+    <canvas id="canvas" width=1100 height=500
+                  (mousemove)="handleMouseMove($event)"
+                  (click)="processClick()"
+    #canvasElement></canvas>
+    <app-dialog *ngIf="openDialog"></app-dialog>
+    </div>
+</body>
+</html>

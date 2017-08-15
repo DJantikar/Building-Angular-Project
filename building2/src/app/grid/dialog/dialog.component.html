@@ -1,0 +1,14 @@
+<html>
+<body>
+<form>
+  Selected point -  x : {{myCanvas.mouseX}} | y : {{myCanvas.mouseY}}
+  Length<input type="number" name="length" #length>
+  Radius<input type="number" name="radius" #radius>
+  Object <select name="object" #selectedObject>
+                <option value="column">Column</option>
+                <option value="beam">Beam</option>               
+        </select>
+  <input type="button" value="Submit" (click)="onSubmit()" >
+</form>
+</body>
+</html>

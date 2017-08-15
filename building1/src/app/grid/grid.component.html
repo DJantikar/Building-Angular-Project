@@ -1,0 +1,78 @@
+<html>
+<body>
+<!-- <hr>
+<form>
+      <div class="row">
+        <div class="col-sm-1 form-group">
+        </div>
+        <div class="col-sm-2 form-group">
+            <label for="column">Column</label>
+            <input type="radio" 
+                   name="object"
+                   [checked]="columnChecked"                  
+                   (click)="updateSelection('Column')"
+                   #column>
+            <br>            
+        </div>
+        <div class="col-sm-2 form-group">
+            <label for="beam">Beam</label>
+            <input type="radio" 
+                  name="object"
+                  (click)="updateSelection('Beam')"
+                  #beam>
+        </div>
+      </div>
+      
+</form> -->
+
+<div class="row">
+        <div class="col-xs-1">
+        </div>
+        <div class="col-xs-1">
+          <button class="btn btn-success" 
+                  type="button" 
+                  (click)="saveCanvas()">Save</button>
+        </div>
+        <!-- <div class="col-xs-1">
+          <button class="btn btn-warning" type="button">Edit</button>
+        </div>
+        <div class="col-xs-1">
+          <button class="btn btn-danger" type="button">Delete</button>
+        </div> -->
+        <div class="col-xs-1">
+          <button class="btn" 
+                  type="button"
+                  (click)="clearCanvas()">Clear</button>
+        </div>
+        <div class="col-xs-1">
+         <!--  <label class=" btn btn-primary btn-file">
+              Load 
+                <input  type='file' accept='text/json' 
+                        style="display: none;"
+                        multiple (click)="openFile($event.target.files)">
+          </label> -->
+          <label class=" btn btn-primary btn-file">
+              Load 
+          <input  type='file' (change)="openFile($event)" style = "display:none;" accept="type/json">
+          </label>
+        </div>
+</div>
+<div class="row">
+        
+<!--         <div  align="center" class="col-xs-12">
+          <canvas width="1000" height="400" 
+                  (mousemove)="location($event)"
+                  (click)="processClick()"
+                  #canvasElement>
+          </canvas>
+        </div> -->
+        <app-canvas></app-canvas>
+</div>
+<!-- <div align="right"> 
+</div>
+<div align="center">
+ x: {{x}} | y : {{y}}
+</div> -->
+
+</body>  
+</html>
